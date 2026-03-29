@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Run lint-staged serially to avoid OOM killer on concurrent ESLint runners
+npx --no-install lint-staged --concurrent 1

@@ -1,0 +1,60 @@
+{
+	"name": "llm-water-tracker-monorepo",
+	"type": "module",
+	"version": "18.0.10",
+	"private": true,
+	"workspaces": [
+		"apps/*"
+	],
+	"packageManager": "pnpm@10.30.1",
+	"engines": {
+		"runtime": [
+			{
+				"name": "node",
+				"version": "^24.13.0",
+				"onFail": "download"
+			},
+			{
+				"name": "bun",
+				"version": "^1.3.9",
+				"onFail": "download"
+			}
+		]
+	},
+	"scripts": {
+		"build": "pnpm run --filter '*' build",
+		"format": "pnpm --aggregate-output /^format:/",
+		"format:root": "pnpm run lint:root --fix",
+		"format:submodules": "pnpm --parallel -r --aggregate-output /^format/",
+		"preinstall": "npx only-allow pnpm",
+		"lint": "pnpm --no-bail --aggregate-output /^lint:/",
+		"lint:root": "eslint --cache eslint.config.js .",
+		"lint:submodules": "pnpm --parallel -r --no-bail /^lint/",
+		"prepare": "pnpm run /^prepare:/",
+		"prepare:git": "git config --local core.hooksPath .githooks",
+		"prerelease": "pnpm run --filter '*' prerelease",
+		"release": "pnpm bumpp -r",
+		"postrelease": "git checkout ./**/package.json package.json",
+		"test": "TZ=UTC vitest run",
+		"typecheck": "pnpm run --filter '*' typecheck"
+	},
+	"dependencies": {},
+	"devDependencies": {
+		"@gunshi/docs": "catalog:llm-docs",
+		"@praha/byethrow-docs": "catalog:llm-docs",
+		"@typescript/native-preview": "catalog:types",
+		"bumpp": "catalog:release",
+		"changelogithub": "catalog:release",
+		"eslint": "catalog:lint",
+		"lint-staged": "catalog:release",
+		"pkg-pr-new": "catalog:release",
+		"typescript-eslint": "catalog:lint",
+		"vitest": "catalog:testing"
+	},
+	"lint-staged": {
+		"*": [
+			"pnpm run format"
+		]
+	},
+	"author": "Udit Garg"
+}

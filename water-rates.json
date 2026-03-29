@@ -1,0 +1,19 @@
+{
+	"version": 1,
+	"updated": "2026-03-29",
+	"source": "Making AI Less Thirsty",
+	"sourceUrl": "https://arxiv.org/abs/2304.03271",
+	"baseMlPerToken": 0.01,
+	"modelMultipliers": {
+		"haiku": 0.5,
+		"sonnet": 1.0,
+		"opus": 2.0,
+		"gpt-4o-mini": 0.5,
+		"gpt-4o": 1.0,
+		"o1": 2.0,
+		"o3": 2.0,
+		"gpt-5": 1.0
+	},
+	"cacheReadMultiplier": 0.1,
+	"notes": "Water rates are estimates based on research data. Actual water usage varies by data center location, ambient temperature, and cooling infrastructure. Cache read tokens use a 0.1x multiplier because KV cache hits require minimal compute."
+}
