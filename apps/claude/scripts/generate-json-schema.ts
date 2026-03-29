@@ -215,6 +215,7 @@ async function readFile(path: string): Promise<Result.Result<string, any>> {
 
 async function copySchemaToDocsPublic() {
 	const gitRoot = await $`git rev-parse --show-toplevel`.text().then((text) => text.trim());
+	await $`mkdir -p ${gitRoot}/docs/public`;
 	await $`cp ${SCHEMA_FILENAME} ${gitRoot}/docs/public/${SCHEMA_FILENAME}`;
 }
 

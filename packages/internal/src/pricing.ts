@@ -374,7 +374,7 @@ export class LiteLLMPricingFetcher implements Disposable {
 if (import.meta.vitest != null) {
 	describe('LiteLLMPricingFetcher', () => {
 		it('returns pricing data from LiteLLM dataset', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'gpt-5': {
@@ -390,7 +390,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('calculates cost using pricing information', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'gpt-5': {
@@ -416,7 +416,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('calculates tiered pricing for tokens exceeding 200k threshold (300k input, 250k output, 300k cache creation, 250k cache read)', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'anthropic/claude-4-sonnet-20250514': {
@@ -458,7 +458,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('uses standard pricing for 300k/250k tokens when model lacks tiered pricing', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'gpt-5': {
@@ -483,7 +483,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('correctly applies pricing at 200k boundary (200k uses base, 200,001 uses tiered, 0 returns 0)', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'claude-4-sonnet-20250514': {
@@ -531,7 +531,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('charges only for tokens above 200k when base price is missing (300k→100k charged, 100k→0 charged)', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'theoretical-model': {
@@ -571,7 +571,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('applies fast speed multiplier from provider_specific_entry', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'claude-opus-4-6': {
@@ -597,7 +597,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('defaults to 1x multiplier when provider_specific_entry has no fast field', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'claude-sonnet-4-6': {
@@ -620,7 +620,7 @@ if (import.meta.vitest != null) {
 		});
 
 		it('does not apply multiplier when speed is standard', async () => {
-			using fetcher = new LiteLLMPricingFetcher({
+			const fetcher = new LiteLLMPricingFetcher({
 				offline: true,
 				offlineLoader: async () => ({
 					'claude-opus-4-6': {
