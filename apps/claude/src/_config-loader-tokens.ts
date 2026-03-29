@@ -262,7 +262,7 @@ export function mergeConfigWithArgs<T extends Record<string, unknown>>(
 	const explicit = extractExplicitArgs(ctx.tokens);
 	for (const [key, value] of Object.entries(ctx.values)) {
 		if (value != null && explicit[key] === true) {
-			 
+
 			(merged as any)[key] = value;
 			sources[key] = 'CLI';
 		}
@@ -758,7 +758,7 @@ if (import.meta.vitest != null) {
 
 		beforeEach(() => {
 			vi.restoreAllMocks();
-			loggerInfoSpy = vi.spyOn(logger, 'info').mockImplementation(() => {});
+			loggerInfoSpy = vi.spyOn(logger, 'info').mockImplementation(() => { });
 		});
 
 		afterEach(() => {
@@ -769,7 +769,7 @@ if (import.meta.vitest != null) {
 			it('should log debug info when loading config with debug=true', async () => {
 				await using fixture = await createFixture({
 					'.llm-water-tracker/llm-water-tracker.json': JSON.stringify({
-						$schema: 'https://github.com/uditgarg/llm-water-tracker',
+						$schema: 'https://github.com/procrastinate-coders/llm-water-tracker',
 						defaults: { json: true, mode: 'auto' },
 						commands: { daily: { instances: true } },
 					}),
@@ -792,7 +792,7 @@ if (import.meta.vitest != null) {
 					`Loaded config from: ${fixture.getPath('.llm-water-tracker/llm-water-tracker.json')}`,
 				);
 				expect(loggerInfoSpy).toHaveBeenCalledWith(
-					'  • Schema: https://github.com/uditgarg/llm-water-tracker',
+					'  • Schema: https://github.com/procrastinate-coders/llm-water-tracker',
 				);
 				expect(loggerInfoSpy).toHaveBeenCalledWith('  • Has defaults: yes (2 options)');
 				expect(loggerInfoSpy).toHaveBeenCalledWith('  • Has command configs: yes (daily)');

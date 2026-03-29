@@ -7,11 +7,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uditgarg/llm-water-tracker.git",
+    "url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
     "directory": "apps/claude"
   },
   "bugs": {
-    "url": "https://github.com/uditgarg/llm-water-tracker/issues"
+    "url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
   },
   "exports": {
     ".": "./src/index.ts",

@@ -2,7 +2,7 @@
 
 > Track token usage AND water consumption across all your AI coding tools — Claude Code, Codex, OpenCode, Pi-agent, and Amp.
 
-Built by **[Procrastinate Coder](https://github.com/uditgarg)**.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)**.
 
 Based on research from [Making AI Less Thirsty (Ren et al., 2023)](https://arxiv.org/abs/2304.03271) — every LLM token costs water for data center cooling.
 
@@ -94,7 +94,7 @@ Rates are fetched from `water-rates.json` in this repo and cached locally for 24
 ## Development Setup
 
 ```bash
-git clone https://github.com/uditgarg/llm-water-tracker.git
+git clone https://github.com/procrastinate-coders/llm-water-tracker.git
 cd llm-water-tracker
 pnpm install
 pnpm run build
@@ -105,4 +105,4 @@ pnpm run test
 
 ## License
 
-[MIT](LICENSE) © [Procrastinate Coder](https://github.com/uditgarg)
+[MIT](LICENSE) © [Procrastinate Coder](https://github.com/procrastinate-coders)

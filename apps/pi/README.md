@@ -2,7 +2,7 @@
 
 > Analyze Pi-agent session token usage, costs, and water consumption.
 
-Built by **[Procrastinate Coder](https://github.com/uditgarg)** · Part of the [llm-water-tracker](https://github.com/uditgarg/llm-water-tracker) family.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-tracker) family.
 
 ## Quick Start
 
@@ -54,4 +54,4 @@ npx llm-water-pi daily --since 2025-12-01 --until 2025-12-19
 
 ## License
 
-[MIT](../../LICENSE) © [Procrastinate Coder](https://github.com/uditgarg)
+[MIT](../../LICENSE) © [Procrastinate Coder](https://github.com/procrastinate-coders)

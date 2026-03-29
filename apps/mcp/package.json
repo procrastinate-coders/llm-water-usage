@@ -5,15 +5,15 @@
   "description": "MCP server implementation for llm-water-tracker data",
   "author": "Udit Garg",
   "license": "MIT",
-  "funding": "https://github.com/uditgarg/llm-water-tracker?sponsor=1",
-  "homepage": "https://github.com/uditgarg/llm-water-tracker#readme",
+  "funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
+  "homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/uditgarg/llm-water-tracker.git",
+    "url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
     "directory": "apps/mcp"
   },
   "bugs": {
-    "url": "https://github.com/uditgarg/llm-water-tracker/issues"
+    "url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
   },
   "exports": {
     ".": "./src/index.ts",

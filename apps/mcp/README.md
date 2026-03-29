@@ -2,7 +2,7 @@
 
 > MCP (Model Context Protocol) server for llm-water-tracker — exposes usage and water data to Claude Desktop and other MCP clients.
 
-Built by **[Procrastinate Coder](https://github.com/uditgarg)** · Part of the [llm-water-tracker](https://github.com/uditgarg/llm-water-tracker) family.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-tracker) family.
 
 ## Quick Start
 
@@ -45,4 +45,4 @@ claude mcp add llm-water-tracker npx -- @llm-water-tracker/mcp@latest
 
 ## License
 
-[MIT](../../LICENSE) © [Procrastinate Coder](https://github.com/uditgarg)
+[MIT](../../LICENSE) © [Procrastinate Coder](https://github.com/procrastinate-coders)

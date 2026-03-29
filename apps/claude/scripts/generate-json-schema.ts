@@ -46,12 +46,12 @@ function tokensSchemaToJsonSchema(schema: Record<string, any>): Record<string, a
 	const properties: Record<string, any> = {};
 
 	for (const [key, arg] of Object.entries(schema)) {
-		 
+
 		const argTyped = arg;
 		const property: Record<string, any> = {};
 
 		// Handle type conversion
-		 
+
 		switch (argTyped.type) {
 			case 'boolean':
 				property.type = 'boolean';
@@ -65,9 +65,9 @@ function tokensSchemaToJsonSchema(schema: Record<string, any>): Record<string, a
 				break;
 			case 'enum':
 				property.type = 'string';
-				 
+
 				if (argTyped.choices != null && Array.isArray(argTyped.choices)) {
-					 
+
 					property.enum = argTyped.choices;
 				}
 				break;
@@ -76,18 +76,18 @@ function tokensSchemaToJsonSchema(schema: Record<string, any>): Record<string, a
 		}
 
 		// Add description
-		 
+
 		if (argTyped.description != null) {
-			 
+
 			property.description = argTyped.description;
-			 
+
 			property.markdownDescription = argTyped.description;
 		}
 
 		// Add default value
-		 
+
 		if ('default' in argTyped && argTyped.default !== undefined) {
-			 
+
 			property.default = argTyped.default;
 		}
 
@@ -129,7 +129,7 @@ function createConfigSchemaJson() {
 		properties: Object.fromEntries(
 			Object.entries(commandSchemas).map(([name, schema]) => [
 				name,
-				 
+
 				tokensSchemaToJsonSchema(schema),
 			]),
 		),
@@ -165,7 +165,7 @@ function createConfigSchemaJson() {
 		description: 'Configuration file for llm-water-tracker - LLM water usage tracking tool',
 		examples: [
 			{
-				$schema: 'https://github.com/uditgarg/llm-water-tracker',
+				$schema: 'https://github.com/procrastinate-coders/llm-water-tracker',
 				defaults: {
 					json: false,
 					mode: 'auto',

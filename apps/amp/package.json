@@ -1,34 +1,34 @@
 {
-  "name": "llm-water-amp",
-  "type": "module",
-  "version": "18.0.10",
-  "description": "Track water consumption of your Amp usage",
-  "author": "Udit Garg",
-  "license": "MIT",
-  "funding": "https://github.com/uditgarg/llm-water-tracker?sponsor=1",
-  "homepage": "https://github.com/uditgarg/llm-water-tracker#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/uditgarg/llm-water-tracker.git",
-    "directory": "apps/amp"
-  },
-  "bugs": {
-    "url": "https://github.com/uditgarg/llm-water-tracker/issues"
-  },
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "bin": {
-    "llm-water-amp": "./src/index.ts"
-  },
-  "files": [
-    "dist"
-  ],
-  "publishConfig": {
-    "bin": {
-      "llm-water-amp": "./dist/index.js"
-    }
-  },
-  "engines": {
-    "node": ">=20.19.4"
-  }
+	"name": "llm-water-amp",
+	"type": "module",
+	"version": "18.0.10",
+	"description": "Track water consumption of your Amp usage",
+	"author": "Udit Garg",
+	"license": "MIT",
+	"funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
+	"homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
+		"directory": "apps/amp"
+	},
+	"bugs": {
+		"url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
+	},
+	"main": "./dist/index.js",
+	"module": "./dist/index.js",
+	"bin": {
+		"llm-water-amp": "./src/index.ts"
+	},
+	"files": [
+		"dist"
+	],
+	"publishConfig": {
+		"bin": {
+			"llm-water-amp": "./dist/index.js"
+		}
+	},
+	"engines": {
+		"node": ">=20.19.4"
+	}
 }
