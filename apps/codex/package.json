@@ -1,61 +1,32 @@
 {
-	"name": "llm-water-codex",
-	"type": "module",
-	"version": "18.0.10",
-	"description": "Track water consumption of your OpenAI Codex usage",
-	"author": "Udit Garg",
-	"license": "MIT",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/uditgarg/llm-water-tracker.git",
-		"directory": "apps/codex"
-	},
-	"bugs": {
-		"url": "https://github.com/uditgarg/llm-water-tracker/issues"
-	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
-	"bin": {
-		"llm-water-codex": "./src/index.ts"
-	},
-	"files": [
-		"dist"
-	],
-	"publishConfig": {
-		"bin": {
-			"llm-water-codex": "./dist/index.js"
-		}
-	},
-	"engines": {
-		"node": ">=20.19.4"
-	},
-	"scripts": {
-		"build": "tsdown",
-		"format": "pnpm run lint --fix",
-		"lint": "eslint --cache .",
-		"prepack": "pnpm run build && clean-pkg-json",
-		"prerelease": "pnpm run lint && pnpm run typecheck && pnpm run build",
-		"start": "bun ./src/index.ts",
-		"test": "TZ=UTC vitest",
-		"typecheck": "tsgo --noEmit"
-	},
-	"devDependencies": {
-		"@llm-water-tracker/internal": "workspace:*",
-		"@llm-water-tracker/terminal": "workspace:*",
-		"@praha/byethrow": "catalog:runtime",
-		"@typescript/native-preview": "catalog:types",
-		"clean-pkg-json": "catalog:release",
-		"eslint": "catalog:lint",
-		"fast-sort": "catalog:runtime",
-		"typescript-eslint": "catalog:lint",
-		"fs-fixture": "catalog:testing",
-		"gunshi": "catalog:runtime",
-		"picocolors": "catalog:runtime",
-		"tinyglobby": "catalog:runtime",
-		"tsdown": "catalog:build",
-		"unplugin-macros": "catalog:build",
-		"unplugin-unused": "catalog:build",
-		"valibot": "catalog:runtime",
-		"vitest": "catalog:testing"
-	}
+  "name": "llm-water-codex",
+  "type": "module",
+  "version": "18.0.10",
+  "description": "Track water consumption of your OpenAI Codex usage",
+  "author": "Udit Garg",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uditgarg/llm-water-tracker.git",
+    "directory": "apps/codex"
+  },
+  "bugs": {
+    "url": "https://github.com/uditgarg/llm-water-tracker/issues"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "bin": {
+    "llm-water-codex": "./src/index.ts"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "bin": {
+      "llm-water-codex": "./dist/index.js"
+    }
+  },
+  "engines": {
+    "node": ">=20.19.4"
+  }
 }
