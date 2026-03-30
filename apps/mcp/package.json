@@ -1,7 +1,7 @@
 {
   "name": "llm-water-mcp",
   "type": "module",
-  "version": "18.0.12",
+  "version": "18.0.13",
   "description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
   "author": "Udit Garg",
   "license": "MIT",

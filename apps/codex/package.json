@@ -1,7 +1,7 @@
 {
 	"name": "llm-water-codex",
 	"type": "module",
-	"version": "18.0.12",
+	"version": "18.0.13",
 	"description": "Track OpenAI Codex CLI token usage, costs, and water consumption. Daily, monthly, and session reports with water footprint data.",
 	"author": "Udit Garg",
 	"license": "MIT",

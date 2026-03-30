@@ -1,7 +1,7 @@
 {
 	"name": "llm-water-tracker-monorepo",
 	"type": "module",
-	"version": "18.0.12",
+	"version": "18.0.13",
 	"private": true,
 	"workspaces": [
 		"apps/*"

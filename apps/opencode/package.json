@@ -1,7 +1,7 @@
 {
   "name": "llm-water-opencode",
   "type": "module",
-  "version": "18.0.12",
+  "version": "18.0.13",
   "description": "Track OpenCode session token usage, costs, and water consumption. Daily, weekly, monthly, and session reports with water footprint data.",
   "contributors": [
     "AnishDe12020"
