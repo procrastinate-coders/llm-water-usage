@@ -1,78 +1,46 @@
 {
-	"name": "llm-water-pi",
-	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your pi-agent usage",
-	"author": "Udit Garg",
-	"contributors": [
-		"nicobailon"
-	],
-	"license": "MIT",
-	"funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
-	"homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
-		"directory": "apps/pi"
-	},
-	"bugs": {
-		"url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
-	},
-	"exports": {
-		".": "./src/index.ts",
-		"./package.json": "./package.json"
-	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"bin": {
-		"llm-water-pi": "./src/index.ts"
-	},
-	"files": [
-		"README.md",
-		"dist"
-	],
-	"publishConfig": {
-		"bin": {
-			"llm-water-pi": "./dist/index.js"
-		},
-		"exports": {
-			".": "./dist/index.js",
-			"./package.json": "./package.json"
-		}
-	},
-	"engines": {
-		"node": ">=20.19.4"
-	},
-	"scripts": {
-		"build": "tsdown",
-		"dev": "bun -b --watch ./src/index.ts",
-		"format": "pnpm run lint --fix",
-		"lint": "eslint --cache .",
-		"prepack": "pnpm run build && clean-pkg-json",
-		"prerelease": "pnpm run lint && pnpm run typecheck && pnpm run build",
-		"start": "bun ./src/index.ts",
-		"test": "TZ=UTC vitest",
-		"typecheck": "tsgo --noEmit"
-	},
-	"devDependencies": {
-		"@llm-water-tracker/internal": "workspace:*",
-		"@llm-water-tracker/terminal": "workspace:*",
-		"@praha/byethrow": "catalog:runtime",
-		"@types/bun": "catalog:types",
-		"@typescript/native-preview": "catalog:types",
-		"clean-pkg-json": "catalog:release",
-		"es-toolkit": "catalog:runtime",
-		"eslint": "catalog:lint",
-		"fs-fixture": "catalog:testing",
-		"gunshi": "catalog:runtime",
-		"path-type": "catalog:runtime",
-		"picocolors": "catalog:runtime",
-		"publint": "catalog:lint",
-		"tinyglobby": "catalog:runtime",
-		"typescript-eslint": "catalog:lint",
-		"tsdown": "catalog:build",
-		"valibot": "catalog:runtime",
-		"vitest": "catalog:testing"
-	}
+  "name": "llm-water-pi",
+  "type": "module",
+  "version": "18.0.11",
+  "description": "Track water consumption of your pi-agent usage",
+  "author": "Udit Garg",
+  "contributors": [
+    "nicobailon"
+  ],
+  "license": "MIT",
+  "funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
+  "homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
+    "directory": "apps/pi"
+  },
+  "bugs": {
+    "url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
+  },
+  "exports": {
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "llm-water-pi": "./src/index.ts"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "publishConfig": {
+    "bin": {
+      "llm-water-pi": "./dist/index.js"
+    },
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
+  "engines": {
+    "node": ">=20.19.4"
+  }
 }
