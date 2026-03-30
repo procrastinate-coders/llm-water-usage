@@ -1,97 +1,97 @@
 {
-	"name": "@llm-water-tracker/mcp",
-	"type": "module",
-	"version": "18.0.12",
-	"description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
-	"author": "Udit Garg",
-	"license": "MIT",
-	"funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
-	"homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
-		"directory": "apps/mcp"
-	},
-	"bugs": {
-		"url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
-	},
-	"exports": {
-		".": "./src/index.ts",
-		"./package.json": "./package.json"
-	},
-	"main": "./dist/index.js",
-	"module": "./dist/index.js",
-	"types": "./dist/index.d.ts",
-	"bin": {
-		"llm-water-mcp": "./src/index.ts"
-	},
-	"files": [
-		"README.md",
-		"dist"
-	],
-	"publishConfig": {
-		"bin": {
-			"llm-water-mcp": "./dist/index.js"
-		},
-		"exports": {
-			".": "./dist/index.js",
-			"./package.json": "./package.json"
-		}
-	},
-	"engines": {
-		"node": ">=20.19.4"
-	},
-	"scripts": {
-		"build": "tsdown",
-		"dev": "bun -b --watch ./src/index.ts",
-		"format": "pnpm run lint --fix",
-		"lint": "eslint --cache .",
-		"prepack": "pnpm run build && clean-pkg-json",
-		"prerelease": "pnpm run lint && pnpm run typecheck && pnpm run build",
-		"start": "bun ./src/index.ts",
-		"test": "TZ=UTC vitest",
-		"typecheck": "tsgo --noEmit"
-	},
-	"dependencies": {
-		"@hono/mcp": "catalog:runtime",
-		"@hono/node-server": "catalog:runtime",
-		"@modelcontextprotocol/sdk": "catalog:runtime",
-		"llm-water-codex": "workspace:*",
-		"llm-water-tracker": "workspace:*",
-		"gunshi": "catalog:runtime",
-		"hono": "catalog:runtime",
-		"nano-spawn": "catalog:runtime",
-		"zod": "catalog:runtime"
-	},
-	"devDependencies": {
-		"@llm-water-tracker/internal": "workspace:*",
-		"@typescript/native-preview": "catalog:types",
-		"clean-pkg-json": "catalog:release",
-		"eslint": "catalog:lint",
-		"fs-fixture": "catalog:testing",
-		"typescript-eslint": "catalog:lint",
-		"publint": "catalog:lint",
-		"tsdown": "catalog:build",
-		"vitest": "catalog:testing"
-	},
-	"keywords": [
-		"mcp",
-		"model-context-protocol",
-		"claude-desktop",
-		"llm",
-		"water",
-		"water-tracker",
-		"water-footprint",
-		"token",
-		"token-usage",
-		"usage",
-		"sustainability",
-		"ai",
-		"ai-tools",
-		"devtools",
-		"carbon",
-		"environment",
-		"anthropic",
-		"claude"
-	]
+  "name": "@llm-water-tracker/mcp",
+  "type": "module",
+  "version": "18.0.12",
+  "description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
+  "author": "Udit Garg",
+  "license": "MIT",
+  "funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
+  "homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
+    "directory": "apps/mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "llm-water-mcp": "./src/index.ts"
+  },
+  "files": [
+    "README.md",
+    "dist"
+  ],
+  "publishConfig": {
+    "bin": {
+      "llm-water-mcp": "./dist/index.js"
+    },
+    "exports": {
+      ".": "./dist/index.js",
+      "./package.json": "./package.json"
+    }
+  },
+  "engines": {
+    "node": ">=20.19.4"
+  },
+  "scripts": {
+    "build": "tsdown",
+    "dev": "bun -b --watch ./src/index.ts",
+    "format": "pnpm run lint --fix",
+    "lint": "eslint --cache .",
+    "prepack": "pnpm run build && clean-pkg-json",
+    "prerelease": "pnpm run lint && pnpm run typecheck && pnpm run build",
+    "start": "bun ./src/index.ts",
+    "test": "TZ=UTC vitest",
+    "typecheck": "tsgo --noEmit"
+  },
+  "dependencies": {
+    "@hono/mcp": "catalog:runtime",
+    "@hono/node-server": "catalog:runtime",
+    "@modelcontextprotocol/sdk": "catalog:runtime",
+    "llm-water-codex": "workspace:*",
+    "llm-water-tracker": "workspace:*",
+    "gunshi": "catalog:runtime",
+    "hono": "catalog:runtime",
+    "nano-spawn": "catalog:runtime",
+    "zod": "catalog:runtime"
+  },
+  "devDependencies": {
+    "@llm-water-tracker/internal": "workspace:*",
+    "@typescript/native-preview": "catalog:types",
+    "clean-pkg-json": "catalog:release",
+    "eslint": "catalog:lint",
+    "fs-fixture": "catalog:testing",
+    "typescript-eslint": "catalog:lint",
+    "publint": "catalog:lint",
+    "tsdown": "catalog:build",
+    "vitest": "catalog:testing"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "claude-desktop",
+    "llm",
+    "water",
+    "water-tracker",
+    "water-footprint",
+    "token",
+    "token-usage",
+    "usage",
+    "sustainability",
+    "ai",
+    "ai-tools",
+    "devtools",
+    "carbon",
+    "environment",
+    "anthropic",
+    "claude"
+  ]
 }
