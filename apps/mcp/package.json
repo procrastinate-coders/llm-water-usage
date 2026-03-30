@@ -1,5 +1,5 @@
 {
-  "name": "@llm-water-tracker/mcp",
+  "name": "llm-water-mcp",
   "type": "module",
   "version": "18.0.12",
   "description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
