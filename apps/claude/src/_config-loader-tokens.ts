@@ -769,7 +769,7 @@ if (import.meta.vitest != null) {
 			it('should log debug info when loading config with debug=true', async () => {
 				await using fixture = await createFixture({
 					'.llm-water-tracker/llm-water-tracker.json': JSON.stringify({
-						$schema: 'https://github.com/procrastinate-coders/llm-water-tracker',
+						$schema: 'https://github.com/procrastinate-coders/llm-water-usage',
 						defaults: { json: true, mode: 'auto' },
 						commands: { daily: { instances: true } },
 					}),
@@ -792,7 +792,7 @@ if (import.meta.vitest != null) {
 					`Loaded config from: ${fixture.getPath('.llm-water-tracker/llm-water-tracker.json')}`,
 				);
 				expect(loggerInfoSpy).toHaveBeenCalledWith(
-					'  • Schema: https://github.com/procrastinate-coders/llm-water-tracker',
+					'  • Schema: https://github.com/procrastinate-coders/llm-water-usage',
 				);
 				expect(loggerInfoSpy).toHaveBeenCalledWith('  • Has defaults: yes (2 options)');
 				expect(loggerInfoSpy).toHaveBeenCalledWith('  • Has command configs: yes (daily)');

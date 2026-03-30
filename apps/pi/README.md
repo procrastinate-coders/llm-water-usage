@@ -2,7 +2,7 @@
 
 > Analyze Pi-agent session token usage, costs, and water consumption.
 
-Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-tracker) family.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-usage) family.
 
 ## Quick Start
 

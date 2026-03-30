@@ -2,7 +2,7 @@
 
 > Analyze Claude Code token usage, costs, and water consumption from local JSONL files.
 
-Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-tracker) family.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-usage) family.
 
 ## Quick Start
 

@@ -165,7 +165,7 @@ function createConfigSchemaJson() {
 		description: 'Configuration file for llm-water-tracker - LLM water usage tracking tool',
 		examples: [
 			{
-				$schema: 'https://github.com/procrastinate-coders/llm-water-tracker',
+				$schema: 'https://github.com/procrastinate-coders/llm-water-usage',
 				defaults: {
 					json: false,
 					mode: 'auto',

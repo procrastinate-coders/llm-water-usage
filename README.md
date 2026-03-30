@@ -94,7 +94,7 @@ Rates are fetched from `water-rates.json` in this repo and cached locally for 24
 ## Development Setup
 
 ```bash
-git clone https://github.com/procrastinate-coders/llm-water-tracker.git
+git clone https://github.com/procrastinate-coders/llm-water-usage.git
 cd llm-water-tracker
 pnpm install
 pnpm run build

@@ -5,18 +5,16 @@
   "description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
   "author": "Udit Garg",
   "license": "MIT",
-  "funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
-  "homepage": "https://github.com/procrastinate-coders/llm-water-tracker#readme",
+  "homepage": "https://github.com/procrastinate-coders/llm-water-usage#readme",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/procrastinate-coders/llm-water-tracker.git",
+    "url": "git+https://github.com/procrastinate-coders/llm-water-usage.git",
     "directory": "apps/mcp"
   },
   "bugs": {
-    "url": "https://github.com/procrastinate-coders/llm-water-tracker/issues"
+    "url": "https://github.com/procrastinate-coders/llm-water-usage/issues"
   },
   "exports": {
-    ".": "./src/index.ts",
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
@@ -41,17 +39,6 @@
   "engines": {
     "node": ">=20.19.4"
   },
-  "scripts": {
-    "build": "tsdown",
-    "dev": "bun -b --watch ./src/index.ts",
-    "format": "pnpm run lint --fix",
-    "lint": "eslint --cache .",
-    "prepack": "pnpm run build && clean-pkg-json",
-    "prerelease": "pnpm run lint && pnpm run typecheck && pnpm run build",
-    "start": "bun ./src/index.ts",
-    "test": "TZ=UTC vitest",
-    "typecheck": "tsgo --noEmit"
-  },
   "dependencies": {
     "@hono/mcp": "catalog:runtime",
     "@hono/node-server": "catalog:runtime",
@@ -62,17 +49,6 @@
     "hono": "catalog:runtime",
     "nano-spawn": "catalog:runtime",
     "zod": "catalog:runtime"
-  },
-  "devDependencies": {
-    "@llm-water-tracker/internal": "workspace:*",
-    "@typescript/native-preview": "catalog:types",
-    "clean-pkg-json": "catalog:release",
-    "eslint": "catalog:lint",
-    "fs-fixture": "catalog:testing",
-    "typescript-eslint": "catalog:lint",
-    "publint": "catalog:lint",
-    "tsdown": "catalog:build",
-    "vitest": "catalog:testing"
   },
   "keywords": [
     "mcp",

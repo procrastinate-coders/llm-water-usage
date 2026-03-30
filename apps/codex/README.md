@@ -2,7 +2,7 @@
 
 > Analyze OpenAI Codex CLI token usage, costs, and water consumption.
 
-Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-tracker) family.
+Built by **[Procrastinate Coder](https://github.com/procrastinate-coders)** · Part of the [llm-water-tracker](https://github.com/procrastinate-coders/llm-water-usage) family.
 
 > ⚠️ **Beta:** Codex CLI support is experimental. Expect breaking changes until the upstream Codex tooling stabilizes.
 
