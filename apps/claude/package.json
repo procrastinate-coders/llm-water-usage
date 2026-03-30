@@ -1,8 +1,8 @@
 {
 	"name": "llm-water-tracker",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your LLM usage (Claude Code, Codex, OpenCode, and more)",
+	"version": "18.0.12",
+	"description": "Track Claude Code token usage, costs, and water consumption. Daily, monthly, session, and block reports with water footprint data.",
 	"author": "Udit Garg",
 	"license": "MIT",
 	"repository": {
@@ -98,5 +98,25 @@
 		"valibot": "catalog:runtime",
 		"vitest": "catalog:testing",
 		"xdg-basedir": "catalog:runtime"
-	}
+	},
+	"keywords": [
+		"claude",
+		"claude-code",
+		"anthropic",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"cli",
+		"devtools",
+		"carbon",
+		"environment",
+		"mcp"
+	]
 }

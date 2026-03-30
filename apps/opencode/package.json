@@ -1,8 +1,8 @@
 {
 	"name": "llm-water-opencode",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your OpenCode usage",
+	"version": "18.0.12",
+	"description": "Track OpenCode session token usage, costs, and water consumption. Daily, weekly, monthly, and session reports with water footprint data.",
 	"contributors": [
 		"AnishDe12020"
 	],
@@ -64,5 +64,22 @@
 		"valibot": "catalog:runtime",
 		"vitest": "catalog:testing"
 	},
-	"author": "Udit Garg"
+	"author": "Udit Garg",
+	"keywords": [
+		"opencode",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"cli",
+		"devtools",
+		"carbon",
+		"environment"
+	]
 }

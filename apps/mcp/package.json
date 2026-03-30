@@ -1,8 +1,8 @@
 {
 	"name": "@llm-water-tracker/mcp",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "MCP server implementation for llm-water-tracker data",
+	"version": "18.0.12",
+	"description": "MCP server for llm-water-tracker — query LLM token usage and water consumption from Claude Desktop and other MCP clients.",
 	"author": "Udit Garg",
 	"license": "MIT",
 	"funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
@@ -73,5 +73,25 @@
 		"publint": "catalog:lint",
 		"tsdown": "catalog:build",
 		"vitest": "catalog:testing"
-	}
+	},
+	"keywords": [
+		"mcp",
+		"model-context-protocol",
+		"claude-desktop",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"devtools",
+		"carbon",
+		"environment",
+		"anthropic",
+		"claude"
+	]
 }

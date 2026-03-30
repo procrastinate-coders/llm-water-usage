@@ -1,8 +1,8 @@
 {
 	"name": "llm-water-pi",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your pi-agent usage",
+	"version": "18.0.12",
+	"description": "Track Pi-agent session token usage, costs, and water consumption. Daily, monthly, and session reports with water footprint data.",
 	"author": "Udit Garg",
 	"contributors": [
 		"nicobailon"
@@ -74,5 +74,25 @@
 		"tsdown": "catalog:build",
 		"valibot": "catalog:runtime",
 		"vitest": "catalog:testing"
-	}
+	},
+	"keywords": [
+		"pi-agent",
+		"pi",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"cli",
+		"devtools",
+		"carbon",
+		"environment",
+		"anthropic",
+		"claude"
+	]
 }

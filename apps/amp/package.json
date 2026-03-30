@@ -1,8 +1,8 @@
 {
 	"name": "llm-water-amp",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your Amp usage",
+	"version": "18.0.12",
+	"description": "Track Amp AI agent token usage, costs, and water consumption. Daily, monthly, and session reports with water footprint data.",
 	"author": "Udit Garg",
 	"license": "MIT",
 	"funding": "https://github.com/procrastinate-coders/llm-water-tracker?sponsor=1",
@@ -60,5 +60,24 @@
 		"unplugin-unused": "catalog:build",
 		"valibot": "catalog:runtime",
 		"vitest": "catalog:testing"
-	}
+	},
+	"keywords": [
+		"amp",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"cli",
+		"devtools",
+		"carbon",
+		"environment",
+		"anthropic",
+		"claude"
+	]
 }

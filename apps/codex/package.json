@@ -1,8 +1,8 @@
 {
 	"name": "llm-water-codex",
 	"type": "module",
-	"version": "18.0.11",
-	"description": "Track water consumption of your OpenAI Codex usage",
+	"version": "18.0.12",
+	"description": "Track OpenAI Codex CLI token usage, costs, and water consumption. Daily, monthly, and session reports with water footprint data.",
 	"author": "Udit Garg",
 	"license": "MIT",
 	"repository": {
@@ -57,5 +57,25 @@
 		"unplugin-unused": "catalog:build",
 		"valibot": "catalog:runtime",
 		"vitest": "catalog:testing"
-	}
+	},
+	"keywords": [
+		"codex",
+		"openai",
+		"gpt",
+		"gpt-4o",
+		"llm",
+		"water",
+		"water-tracker",
+		"water-footprint",
+		"token",
+		"token-usage",
+		"usage",
+		"sustainability",
+		"ai",
+		"ai-tools",
+		"cli",
+		"devtools",
+		"carbon",
+		"environment"
+	]
 }
