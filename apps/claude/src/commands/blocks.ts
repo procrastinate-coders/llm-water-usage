@@ -14,6 +14,13 @@ import {
 	mlToLiters,
 } from '@llm-water-tracker/internal/water-calculator';
 import { fetchWaterRates } from '@llm-water-tracker/internal/water-rates-fetcher';
+import {
+	calculateCo2GramsForEntry,
+	DEFAULT_CO2_RATES,
+	formatCo2Grams,
+	formatCo2Pounds,
+	gramsToPounds,
+} from '@llm-water-tracker/internal/co2-calculator';
 import { Result } from '@praha/byethrow';
 import { define } from 'gunshi';
 import pc from 'picocolors';
@@ -193,6 +200,7 @@ export const blocksCommand = define({
 		}
 
 		const waterRates = await fetchWaterRates(Boolean(ctx.values.offline));
+		const co2Rates = waterRates.co2 ?? DEFAULT_CO2_RATES;
 
 		// Calculate max tokens from ALL blocks before applying filters
 		let maxTokensFromAll = 0;
@@ -238,6 +246,7 @@ export const blocksCommand = define({
 					const burnRate = block.isActive ? calculateBurnRate(block) : null;
 					const projection = block.isActive ? projectBlockUsage(block) : null;
 					const blockWaterMl = calculateWaterMlForEntry({ inputTokens: block.tokenCounts.inputTokens, outputTokens: block.tokenCounts.outputTokens, cacheCreationTokens: block.tokenCounts.cacheCreationInputTokens, cacheReadTokens: block.tokenCounts.cacheReadInputTokens }, block.models, waterRates);
+					const blockCo2Grams = calculateCo2GramsForEntry({ inputTokens: block.tokenCounts.inputTokens, outputTokens: block.tokenCounts.outputTokens, cacheCreationTokens: block.tokenCounts.cacheCreationInputTokens, cacheReadTokens: block.tokenCounts.cacheReadInputTokens }, block.models, co2Rates);
 
 					return {
 						id: block.id,
@@ -252,6 +261,8 @@ export const blocksCommand = define({
 						costUSD: block.costUSD,
 						waterLiters: mlToLiters(blockWaterMl),
 						waterGallons: mlToGallons(blockWaterMl),
+						co2Grams: blockCo2Grams,
+						co2Pounds: gramsToPounds(blockCo2Grams),
 						models: block.models,
 						burnRate,
 						projection,
@@ -329,7 +340,16 @@ export const blocksCommand = define({
 				log(`  Current:          ${formatWaterLiters(activeWaterMl)} (${formatWaterGallons(activeWaterMl)})`);
 				if (burnRate != null) {
 					const waterMlPerMin = burnRate.tokensPerMinute * waterRates.baseMlPerToken;
-					log(`  Rate:             ${waterMlPerMin.toFixed(4)} ml/min\n`);
+					log(`  Rate:             ${waterMlPerMin.toFixed(4)} ml/min`);
+				}
+				log('');
+
+				const activeCo2Grams = calculateCo2GramsForEntry({ inputTokens: block.tokenCounts.inputTokens, outputTokens: block.tokenCounts.outputTokens, cacheCreationTokens: block.tokenCounts.cacheCreationInputTokens, cacheReadTokens: block.tokenCounts.cacheReadInputTokens }, block.models, co2Rates);
+				log(pc.bold('Carbon Footprint:'));
+				log(`  Current:          ${formatCo2Grams(activeCo2Grams)} (${formatCo2Pounds(activeCo2Grams)})`);
+				if (burnRate != null) {
+					const co2GramsPerMin = burnRate.tokensPerMinute * co2Rates.baseGramsPerToken;
+					log(`  Rate:             ${co2GramsPerMin.toFixed(6)} g/min\n`);
 				} else {
 					log('');
 				}
@@ -381,8 +401,8 @@ export const blocksCommand = define({
 
 				tableHeaders.push('Cost');
 				tableAligns.push('right');
-				tableHeaders.push('Water (L)', 'Water (gal)');
-				tableAligns.push('right', 'right');
+				tableHeaders.push('Water (L)', 'Water (gal)', 'CO2 (g)', 'CO2 (lbs)');
+				tableAligns.push('right', 'right', 'right', 'right');
 
 				const table = new ResponsiveTable({
 					head: tableHeaders,
@@ -411,7 +431,7 @@ export const blocksCommand = define({
 							gapRow.push(pc.gray('-'));
 						}
 						gapRow.push(pc.gray('-'));
-						gapRow.push(pc.gray('-'), pc.gray('-'));
+						gapRow.push(pc.gray('-'), pc.gray('-'), pc.gray('-'), pc.gray('-'));
 						table.push(gapRow);
 					} else {
 						const totalTokens = getTotalTokens(block.tokenCounts);
@@ -433,7 +453,8 @@ export const blocksCommand = define({
 
 						row.push(formatCurrency(block.costUSD));
 						const rowWaterMl = calculateWaterMlForEntry({ inputTokens: block.tokenCounts.inputTokens, outputTokens: block.tokenCounts.outputTokens, cacheCreationTokens: block.tokenCounts.cacheCreationInputTokens, cacheReadTokens: block.tokenCounts.cacheReadInputTokens }, block.models, waterRates);
-						row.push(formatWaterLiters(rowWaterMl), formatWaterGallons(rowWaterMl));
+						const rowCo2Grams = calculateCo2GramsForEntry({ inputTokens: block.tokenCounts.inputTokens, outputTokens: block.tokenCounts.outputTokens, cacheCreationTokens: block.tokenCounts.cacheCreationInputTokens, cacheReadTokens: block.tokenCounts.cacheReadInputTokens }, block.models, co2Rates);
+						row.push(formatWaterLiters(rowWaterMl), formatWaterGallons(rowWaterMl), formatCo2Grams(rowCo2Grams), formatCo2Pounds(rowCo2Grams));
 						table.push(row);
 
 						// Add REMAINING and PROJECTED rows for active blocks
@@ -461,7 +482,7 @@ export const blocksCommand = define({
 									remainingText,
 									remainingPercentText,
 									'', // No cost for remaining - it's about token limit, not cost
-									'', '',
+									'', '', '', '',
 								];
 								table.push(remainingRow);
 							}
@@ -492,7 +513,7 @@ export const blocksCommand = define({
 								}
 
 								projectedRow.push(formatCurrency(projection.totalCost));
-								projectedRow.push('', '');
+								projectedRow.push('', '', '', '');
 								table.push(projectedRow);
 							}
 						}
