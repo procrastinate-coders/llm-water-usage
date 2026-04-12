@@ -26,6 +26,13 @@ import {
 	mlToLiters,
 } from '@llm-water-tracker/internal/water-calculator';
 import { fetchWaterRates } from '@llm-water-tracker/internal/water-rates-fetcher';
+import {
+	calculateCo2GramsForEntry,
+	DEFAULT_CO2_RATES,
+	formatCo2Grams,
+	formatCo2Pounds,
+	gramsToPounds,
+} from '@llm-water-tracker/internal/co2-calculator';
 
 export const weeklyCommand = define({
 	name: 'weekly',
@@ -56,6 +63,7 @@ export const weeklyCommand = define({
 
 		// Fetch water rates (with offline fallback)
 		const waterRates = await fetchWaterRates(Boolean(mergedOptions.offline));
+		const co2Rates = waterRates.co2 ?? DEFAULT_CO2_RATES;
 
 		if (weeklyData.length === 0) {
 			if (useJson) {
@@ -109,6 +117,16 @@ export const weeklyCommand = define({
 						data.modelsUsed ?? [],
 						waterRates,
 					)),
+					co2Grams: calculateCo2GramsForEntry(
+						{ inputTokens: data.inputTokens, outputTokens: data.outputTokens, cacheCreationTokens: data.cacheCreationTokens, cacheReadTokens: data.cacheReadTokens },
+						data.modelsUsed ?? [],
+						co2Rates,
+					),
+					co2Pounds: gramsToPounds(calculateCo2GramsForEntry(
+						{ inputTokens: data.inputTokens, outputTokens: data.outputTokens, cacheCreationTokens: data.cacheCreationTokens, cacheReadTokens: data.cacheReadTokens },
+						data.modelsUsed ?? [],
+						co2Rates,
+					)),
 				})),
 				totals: createTotalsObject(totals),
 			};
@@ -134,7 +152,7 @@ export const weeklyCommand = define({
 				dateFormatter: (dateStr: string) =>
 					formatDateCompact(dateStr, mergedOptions.timezone, mergedOptions.locale ?? undefined),
 				forceCompact: ctx.values.compact,
-				extraHeaders: ['Water (L)', 'Water (gal)'],
+				extraHeaders: ['Water (L)', 'Water (gal)', 'CO2 (g)', 'CO2 (lbs)'],
 			};
 			const table = createUsageReportTable(tableConfig);
 
@@ -159,6 +177,16 @@ export const weeklyCommand = define({
 							data.modelsUsed ?? [],
 							waterRates,
 						)),
+						formatCo2Grams(calculateCo2GramsForEntry(
+							{ inputTokens: data.inputTokens, outputTokens: data.outputTokens, cacheCreationTokens: data.cacheCreationTokens, cacheReadTokens: data.cacheReadTokens },
+							data.modelsUsed ?? [],
+							co2Rates,
+						)),
+						formatCo2Pounds(calculateCo2GramsForEntry(
+							{ inputTokens: data.inputTokens, outputTokens: data.outputTokens, cacheCreationTokens: data.cacheCreationTokens, cacheReadTokens: data.cacheReadTokens },
+							data.modelsUsed ?? [],
+							co2Rates,
+						)),
 					],
 				});
 				table.push(row);
@@ -170,7 +198,7 @@ export const weeklyCommand = define({
 			}
 
 			// Add empty row for visual separation before totals
-			addEmptySeparatorRow(table, 10);
+			addEmptySeparatorRow(table, 12);
 
 			// Add totals
 			const totalWaterMl = weeklyData.reduce((sum, data) => sum + calculateWaterMlForEntry(
@@ -178,17 +206,23 @@ export const weeklyCommand = define({
 				data.modelsUsed ?? [],
 				waterRates,
 			), 0);
+			const totalCo2Grams = weeklyData.reduce((sum, data) => sum + calculateCo2GramsForEntry(
+				{ inputTokens: data.inputTokens, outputTokens: data.outputTokens, cacheCreationTokens: data.cacheCreationTokens, cacheReadTokens: data.cacheReadTokens },
+				data.modelsUsed ?? [],
+				co2Rates,
+			), 0);
 			const totalsRow = formatTotalsRow({
 				inputTokens: totals.inputTokens,
 				outputTokens: totals.outputTokens,
 				cacheCreationTokens: totals.cacheCreationTokens,
 				cacheReadTokens: totals.cacheReadTokens,
 				totalCost: totals.totalCost,
-			}, false, [formatWaterLiters(totalWaterMl), formatWaterGallons(totalWaterMl)]);
+			}, false, [formatWaterLiters(totalWaterMl), formatWaterGallons(totalWaterMl), formatCo2Grams(totalCo2Grams), formatCo2Pounds(totalCo2Grams)]);
 			table.push(totalsRow);
 
 			log(table.toString());
 			logger.info(`\nRates: ${waterRates.baseMlPerToken} ml/token (sonnet baseline) · ${waterRates.source} · updated ${waterRates.updated}`);
+			logger.info(`CO2: ${co2Rates.baseGramsPerToken} g/token (sonnet baseline) · ${co2Rates.source}`);
 
 			// Show guidance message if in compact mode
 			if (table.isCompactMode()) {
